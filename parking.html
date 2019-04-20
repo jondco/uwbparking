@@ -25,16 +25,20 @@
        <ul>North Garage</ul>
        <div class="progress">
          <div class="progress-bar" role="progressbar" aria-valuenow="70"
-         aria-valuemin="0" aria-valuemax="100" style="width:70%">
-         300 spots available.
+         aria-valuemin="0" aria-valuemax="100" style="width:{{n_percent}}%">
+             {% if result %}
+                 {{ north[0].North_util }} spots available!
+             {% endif %}
        </div>
      </div>
 
        <ul>South Garage</ul>
        <div class="progress">
          <div class="progress-bar" role="progressbar" aria-valuenow="70"
-         aria-valuemin="0" aria-valuemax="100" style="width:70%">
-         400 spots available.
+         aria-valuemin="0" aria-valuemax="100" style="width:{{s_percent}}%">
+             {% if result %}
+                 {{ south[0].South_util }} spots available!
+             {% endif %}
          </div>
        </div>
     </ol>
@@ -43,6 +47,8 @@
     </body>
 
 <div style="margin:1.2em">
-Updated March 15, 2019 10:00pm
+    {% if result %}
+        Updated {{ result[0].Datetime }}
+    {% endif %}
 </div>
 </html>
